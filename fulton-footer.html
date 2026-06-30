@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fulton County GeoLibrary Footer</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #51000D; }
+
+  .fc-footer{position:relative;background:#51000D;color:#f5e6e8;padding:2.5rem 2rem 1.5rem;font-family:sans-serif;overflow:hidden}
+  .fc-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .fc-content{position:relative;z-index:1}
+  .fc-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+  .fc-brand-mark{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+  .fc-brand-name{font-size:15px;font-weight:500;color:#fff;line-height:1.3}
+  .fc-brand-sub{font-size:11px;color:#c9929a;margin-top:2px;letter-spacing:0.05em}
+  .fc-brand-desc{font-size:13px;color:#c9929a;line-height:1.7;max-width:280px}
+  .fc-col-title{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#c9929a;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+  .fc-col-title::before{content:'';display:inline-block;width:12px;height:1px;background:#8c3a45}
+  .fc-links{list-style:none;padding:0;margin:0}
+  .fc-links li{margin-bottom:8px}
+  .fc-links a{font-size:13px;color:#f5e6e8;text-decoration:none;opacity:0.8}
+  .fc-links a:hover{opacity:1}
+  .fc-divider{border:none;border-top:0.5px solid rgba(255,255,255,0.12);margin-bottom:1.25rem}
+  .fc-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .fc-clock{font-size:22px;font-family:monospace;color:#fff;letter-spacing:0.06em}
+  .fc-clock-sub{font-size:10px;color:#a85563;letter-spacing:0.08em;margin-top:2px;font-family:monospace}
+  .fc-copy{font-size:11px;color:#c9929a}
+  .fc-pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);border:0.5px solid rgba(255,255,255,0.2);border-radius:99px;padding:7px 16px;font-size:12px;color:#f5e6e8;text-decoration:none}
+  .fc-pill:hover{background:rgba(255,255,255,0.14)}
+  .fc-pill svg{width:14px;height:14px;stroke:#c9929a;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+  /* Stack to one column on small screens so nothing crushes */
+  @media (max-width: 720px){
+    .fc-footer{padding:2rem 1.25rem 1.25rem}
+    .fc-grid{grid-template-columns:1fr;gap:1.5rem}
+    .fc-brand-desc{max-width:none}
+    .fc-bottom{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<div class="fc-footer" id="fcf">
+  <canvas class="fc-canvas" id="ctopoCanvas"></canvas>
+  <div class="fc-content">
+    <div class="fc-grid">
+      <div>
+        <div class="fc-brand-mark">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.22)" stroke-width="0.75" />
+            <polygon points="20,7 31,13.5 31,26.5 20,33 9,26.5 9,13.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="0.5" />
+            <text x="20" y="24" text-anchor="middle" font-size="11" font-weight="500" fill="#f5e6e8" font-family="sans-serif">FC</text>
+          </svg>
+          <div>
+            <div class="fc-brand-name">Fulton County GeoLibrary</div>
+            <div class="fc-brand-sub">41.535&deg;N &middot; 84.134&deg;W &middot; Wauseon, Ohio</div>
+          </div>
+        </div>
+        <p class="fc-brand-desc">Open geographic data for Fulton County, Ohio. Maintained by the County Auditor GIS Department. Built on the ancestral landscape of the Great Black Swamp.</p>
+      </div>
+      <div>
+        <p class="fc-col-title">Data</p>
+        <ul class="fc-links">
+          <li><a href="https://geolibrary-fultoncountyohio.hub.arcgis.com/search?tags=geolibrary-parcels">Parcels and Property</a></li>
+          <li><a href="https://geolibrary-fultoncountyohio.hub.arcgis.com/search?tags=geolibrary-transportation">Transportation</a></li>
+          <li><a href="https://geolibrary-fultoncountyohio.hub.arcgis.com/search?tags=geolibrary-zoning">Zoning and Planning</a></li>
+          <li><a href="https://geolibrary-fultoncountyohio.hub.arcgis.com/search?tags=geolibrary-naturalresources">Natural Resources</a></li>
+          <li><a href="https://geolibrary-fultoncountyohio.hub.arcgis.com/search?tags=geolibrary-administrative">Administrative</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="fc-col-title">Resources</p>
+        <ul class="fc-links">
+          <li><a href="https://geolibrary-fultoncountyohio.hub.arcgis.com/search?categories=data">Download Data</a></li>
+          <li><a href="https://geolibrary-fultoncountyohio.hub.arcgis.com/search?type=Web+Map">Web Maps</a></li>
+          <li><a href="https://geolibrary-fultoncountyohio.hub.arcgis.com/search?type=Feature+Service">API Access</a></li>
+          <li><a href="https://www.fultoncountyoh.com">County Website</a></li>
+          <li><a href="mailto:davidprice@fultoncountyoh.com">Data Request</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="fc-divider">
+    <div class="fc-bottom">
+      <div>
+        <div class="fc-clock" id="fc-clock">00:00:00</div>
+        <div class="fc-clock-sub" id="fc-clock-sub">LOCAL TIME &middot; WAUSEON OH &middot; ET</div>
+      </div>
+      <div class="fc-copy">&copy; 2026 Fulton County Auditor's Office &nbsp;&middot;&nbsp; 152 S. Fulton St., Suite 165, Wauseon OH 43567</div>
+      <a href="mailto:davidprice@fultoncountyoh.com" class="fc-pill">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" /><polyline points="2,4 12,13 22,4" /></svg>
+        Contact GIS
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Local clock, true Wauseon (Eastern) time, DST aware ---------- */
+  var clockEl = document.getElementById('fc-clock');
+  var subEl   = document.getElementById('fc-clock-sub');
+
+  var timeFmt = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hourCycle: 'h23'
+  });
+  var zoneFmt = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York', timeZoneName: 'short'
+  });
+
+  function zoneAbbrev(now){
+    var parts = zoneFmt.formatToParts(now);
+    for (var i = 0; i < parts.length; i++){
+      if (parts[i].type === 'timeZoneName') return parts[i].value;
+    }
+    return 'ET';
+  }
+
+  function tickClock(){
+    var now = new Date();
+    clockEl.textContent = timeFmt.format(now);
+    subEl.textContent = 'LOCAL TIME \u00B7 WAUSEON OH \u00B7 ' + zoneAbbrev(now);
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
+
+  /* ---------- Topographic contour background ---------- */
+  var footer = document.getElementById('fcf');
+  var canvas = document.getElementById('ctopoCanvas');
+  var ctx = canvas.getContext('2d');
+  var dpr = Math.max(1, window.devicePixelRatio || 1);
+  var W = 0, H = 0;
+
+  function sizeCanvas(){
+    var r = footer.getBoundingClientRect();
+    W = Math.max(1, r.width);
+    H = Math.max(1, r.height);
+    canvas.width  = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  /* Smooth scalar field that drifts with time, giving a topo look */
+  function field(nx, ny, t){
+    return Math.sin(nx * 3.0 + t * 0.6) * Math.cos(ny * 2.2 - t * 0.4)
+         + 0.6 * Math.sin((nx * 1.7 + ny * 2.3) + t * 0.5)
+         + 0.4 * Math.cos((nx * 2.6 - ny * 1.4) - t * 0.3);
+  }
+
+  var CELL = 30;          // grid spacing in pixels
+  var LEVELS = [-1.6, -1.2, -0.8, -0.4, 0, 0.4, 0.8, 1.2, 1.6];
+
+  function frac(a, b, L){ return (L - a) / (b - a); }
+
+  function drawContours(t){
+    ctx.clearRect(0, 0, W, H);
+
+    var cols = Math.ceil(W / CELL) + 1;
+    var rows = Math.ceil(H / CELL) + 1;
+
+    // Sample the field once per grid node
+    var vals = new Array(cols * rows);
+    for (var j = 0; j < rows; j++){
+      for (var i = 0; i < cols; i++){
+        var nx = (i * CELL) / W * 4.0;
+        var ny = (j * CELL) / H * 2.0;
+        vals[j * cols + i] = field(nx, ny, t);
+      }
+    }
+
+    ctx.lineWidth = 1;
+    ctx.lineJoin = 'round';
+
+    for (var l = 0; l < LEVELS.length; l++){
+      var L = LEVELS[l];
+      // Center contour line is faintly brighter, outer ones dimmer
+      var alpha = 0.05 + 0.035 * (1 - Math.abs(L) / 1.8);
+      ctx.strokeStyle = 'rgba(245,230,232,' + alpha.toFixed(3) + ')';
+      ctx.beginPath();
+
+      for (var y = 0; y < rows - 1; y++){
+        for (var x = 0; x < cols - 1; x++){
+          var x0 = x * CELL, y0 = y * CELL;
+          var x1 = x0 + CELL, y1 = y0 + CELL;
+
+          var tl = vals[y * cols + x];
+          var tr = vals[y * cols + (x + 1)];
+          var br = vals[(y + 1) * cols + (x + 1)];
+          var bl = vals[(y + 1) * cols + x];
+
+          var idx = (tl > L ? 8 : 0) | (tr > L ? 4 : 0) | (br > L ? 2 : 0) | (bl > L ? 1 : 0);
+          if (idx === 0 || idx === 15) continue;
+
+          // Edge crossing points
+          var tX = x0 + CELL * frac(tl, tr, L), tY = y0;            // top
+          var rX = x1,                          rY = y0 + CELL * frac(tr, br, L); // right
+          var bX = x0 + CELL * frac(bl, br, L), bY = y1;            // bottom
+          var lX = x0,                          lY = y0 + CELL * frac(tl, bl, L); // left
+
+          function seg(ax, ay, bx2, by2){
+            ctx.moveTo(ax, ay); ctx.lineTo(bx2, by2);
+          }
+
+          switch (idx){
+            case 1:  seg(lX, lY, bX, bY); break;
+            case 2:  seg(bX, bY, rX, rY); break;
+            case 3:  seg(lX, lY, rX, rY); break;
+            case 4:  seg(tX, tY, rX, rY); break;
+            case 5:  seg(tX, tY, lX, lY); seg(bX, bY, rX, rY); break;
+            case 6:  seg(tX, tY, bX, bY); break;
+            case 7:  seg(tX, tY, lX, lY); break;
+            case 8:  seg(tX, tY, lX, lY); break;
+            case 9:  seg(tX, tY, bX, bY); break;
+            case 10: seg(tX, tY, rX, rY); seg(bX, bY, lX, lY); break;
+            case 11: seg(tX, tY, rX, rY); break;
+            case 12: seg(lX, lY, rX, rY); break;
+            case 13: seg(bX, bY, rX, rY); break;
+            case 14: seg(lX, lY, bX, bY); break;
+          }
+        }
+      }
+      ctx.stroke();
+    }
+  }
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var t = 0;
+
+  function loop(){
+    t += 0.0015;
+    drawContours(t);
+    requestAnimationFrame(loop);
+  }
+
+  sizeCanvas();
+  if (reduceMotion){
+    drawContours(0); // one static frame, no animation
+  } else {
+    requestAnimationFrame(loop);
+  }
+
+  var resizeTimer = null;
+  window.addEventListener('resize', function(){
+    if (resizeTimer) clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){
+      dpr = Math.max(1, window.devicePixelRatio || 1);
+      sizeCanvas();
+      if (reduceMotion) drawContours(t);
+    }, 150);
+  });
+})();
+</script>
+
+</body>
+</html>
